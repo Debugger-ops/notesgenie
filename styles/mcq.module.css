@@ -1,0 +1,432 @@
+/* ===== MCQ PAGE ===== */
+.mcqPage {
+  padding: 2rem 0;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* ===== MCQ HEADER ===== */
+.mcqHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.mcqTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.mcqMeta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.875rem;
+  color: var(--text-light);
+}
+
+.timer {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* ===== PROGRESS BAR ===== */
+.progressSection {
+  margin-bottom: 2rem;
+}
+
+.progressInfo {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.813rem;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+}
+
+.progressTrack {
+  width: 100%;
+  height: 6px;
+  background: var(--border);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.progressBar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--primary-light));
+  border-radius: 9999px;
+  transition: width 0.4s ease;
+}
+
+/* ===== QUESTION CARD ===== */
+.questionCard {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.questionNumber {
+  font-size: 0.813rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.75rem;
+}
+
+.questionText {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+}
+
+/* ===== OPTIONS ===== */
+.optionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 1rem 1.25rem;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.938rem;
+  color: var(--text);
+}
+
+.option:hover {
+  border-color: var(--primary-light);
+  background: rgba(108, 99, 255, 0.03);
+}
+
+.optionRadio {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.optionText {
+  flex: 1;
+  line-height: 1.4;
+}
+
+/* ===== SELECTED STATE ===== */
+.optionSelected {
+  border-color: var(--primary);
+  background: rgba(108, 99, 255, 0.06);
+}
+
+.optionSelected .optionRadio {
+  border-color: var(--primary);
+  background: var(--primary);
+}
+
+.optionSelected .optionRadio::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+/* ===== CORRECT STATE ===== */
+.optionCorrect {
+  border-color: var(--success);
+  background: rgba(72, 187, 120, 0.06);
+  cursor: default;
+}
+
+.optionCorrect .optionRadio {
+  border-color: var(--success);
+  background: var(--success);
+}
+
+.optionCorrect .optionRadio::after {
+  content: '\2713';
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+/* ===== INCORRECT STATE ===== */
+.optionIncorrect {
+  border-color: var(--error);
+  background: rgba(245, 101, 101, 0.06);
+  cursor: default;
+}
+
+.optionIncorrect .optionRadio {
+  border-color: var(--error);
+  background: var(--error);
+}
+
+.optionIncorrect .optionRadio::after {
+  content: '\2717';
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+/* ===== EXPLANATION ===== */
+.explanation {
+  margin-top: 1.25rem;
+  padding: 1rem 1.25rem;
+  background: rgba(108, 99, 255, 0.05);
+  border-left: 3px solid var(--primary);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.explanationLabel {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--primary);
+  margin-bottom: 0.375rem;
+}
+
+.explanationText {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--text);
+  margin-bottom: 0;
+}
+
+/* ===== NAVIGATION ===== */
+.questionNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.navBtn {
+  padding: 0.625rem 1.5rem;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.navBtn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.navBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.submitBtn {
+  padding: 0.625rem 2rem;
+  background: var(--primary);
+  color: var(--text-on-primary);
+  border: none;
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.submitBtn:hover {
+  background: var(--primary-dark);
+  box-shadow: 0 4px 12px rgba(108, 99, 255, 0.35);
+}
+
+/* ===== SCORE DISPLAY ===== */
+.scoreCard {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 3rem 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.scoreCircle {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.scoreCircleGood {
+  background: rgba(72, 187, 120, 0.1);
+  border: 4px solid var(--success);
+}
+
+.scoreCircleAvg {
+  background: rgba(237, 137, 54, 0.1);
+  border: 4px solid var(--warning);
+}
+
+.scoreCirclePoor {
+  background: rgba(245, 101, 101, 0.1);
+  border: 4px solid var(--error);
+}
+
+.scoreValue {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.scoreLabel {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  font-weight: 500;
+  margin-top: 0.25rem;
+}
+
+.scoreTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.scoreSubtitle {
+  font-size: 0.938rem;
+  color: var(--text-light);
+  margin-bottom: 0;
+}
+
+/* Aliases used by page component */
+.resultsCard {
+  composes: scoreCard;
+}
+
+.navigationButtons {
+  composes: questionNav;
+}
+
+.navButton {
+  /* no compose needed — overridden by btn classes */
+}
+
+/* ===== RESULTS SUMMARY ===== */
+.resultsSummary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.resultItem {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.resultValue {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.resultValueCorrect {
+  color: var(--success);
+}
+
+.resultValueIncorrect {
+  color: var(--error);
+}
+
+.resultValueSkipped {
+  color: var(--text-light);
+}
+
+.resultLabel {
+  font-size: 0.813rem;
+  color: var(--text-light);
+  margin-top: 0.25rem;
+}
+
+.resultsActions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .mcqPage {
+    padding: 1.5rem 0;
+  }
+
+  .questionCard {
+    padding: 1.5rem;
+  }
+
+  .scoreCircle {
+    width: 120px;
+    height: 120px;
+  }
+
+  .scoreValue {
+    font-size: 2rem;
+  }
+
+  .resultsSummary {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .mcqHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .questionNav {
+    flex-direction: column;
+  }
+
+  .questionNav button {
+    width: 100%;
+  }
+
+  .resultsActions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .resultsActions button {
+    width: 100%;
+  }
+}
